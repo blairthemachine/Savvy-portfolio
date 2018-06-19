@@ -1,3 +1,42 @@
 #bigred {
-    color: firebrick
+    color: firebrick;
+}
+h1 {
+    padding: 10px;
+    color: black;
+}
+
+body {
+    margin: 0;
+}
+
+#navigation {
+    padding: 10px;
+    background-color: firebrick;
+}
+
+#navigation > ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+#navigation > ul > li {
+    margin-right: 10px;
+    display: inline;
+}
+
+#header {
+    padding: 10px;
+    background-color: firebrick;
+}
+
+#content {
+    padding: 10px;
+    background-color: firebrick;
+}
+
+#footer {
+    padding: 10px;
+    background-color: firebrick;
 }
