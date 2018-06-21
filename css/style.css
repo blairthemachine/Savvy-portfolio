@@ -10,7 +10,14 @@ body {
     margin: 0;
 }
 
+img {
+    width: 100%;
+    max-width: 500px;
+}
+
 #navigation {
+    width: 100vw;
+    position: fixed;
     padding: 10px;
     background-color: firebrick;
 }
@@ -22,21 +29,50 @@ body {
 }
 
 #navigation > ul > li {
-    margin-right: 10px;
+    margin-right: 250px;
     display: inline;
+}
+#navigation .container {
+    margin: 0 auto;
 }
 
 #header {
-    padding: 10px;
-    background-color: firebrick;
+    padding: 20px;
+    background-color: rgba(178, 34, 34, 0.377);
 }
 
 #content {
     padding: 10px;
-    background-color: firebrick;
+    background-color: rgb(146, 98, 98);
+}
+
+#content li {
+    background-color: darkslategray;
 }
 
 #footer {
     padding: 10px;
     background-color: firebrick;
 }
+#footer > ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+#footer > ul > li {
+    margin-right: 10px;
+    display: inline;
+}
+
+#loremList:first-child {
+    background-color: goldenrod;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
