@@ -8,6 +8,19 @@ h1 {
 
 body {
     margin: 0;
+    background-color:#DBC069;
+}
+
+a:visited {
+    color: white;
+}
+
+a:link {
+    color: white;
+}
+
+a:hover {
+    color: rgba(219, 192, 105, 0.637);
 }
 
 img {
@@ -19,7 +32,7 @@ img {
     width: 100vw;
     position: fixed;
     padding: 10px;
-    background-color: firebrick;
+    background-color:rgba(21, 35, 82, 0.623);
 }
 
 #navigation > ul {
@@ -36,23 +49,41 @@ img {
     margin: 0 auto;
 }
 
+#navigation ul li {
+    position: relative;
+}
+
+#navigation a + ul {
+    background-color: #DBC069;
+    position: absolute;
+    top: 18px;
+    left: -15px;
+    display: none;
+}
+
+#navigation a:hover + ul,
+#navigation a + ul:hover {
+    display: block;
+}
+
 #header {
-    padding: 20px;
-    background-color: rgba(178, 34, 34, 0.377);
+    
+    padding: 50px;
+    background-color: #DBC069;
 }
 
 #content {
     padding: 10px;
-    background-color: rgb(146, 98, 98);
+    background-color: rgba(21, 35, 82, 0.356);
 }
 
 #content li {
-    background-color: darkslategray;
+    background-color: rgb(255, 255, 255);
 }
 
 #footer {
     padding: 10px;
-    background-color: firebrick;
+    background-color:rgba(21, 35, 82, 0.623);
 }
 #footer > ul {
     margin: 0;
@@ -66,7 +97,7 @@ img {
 }
 
 #loremList:first-child {
-    background-color: goldenrod;
+    background-color: #DBC069;
 }
 
 
@@ -74,5 +105,13 @@ img {
     width: 100%;
     max-width: 750px;
     margin: 0 auto;
+    color: white;
 }
 
+.Backgroundfordropdown {
+    background-color: rgb(255, 255, 255);
+}
+
+.contact {
+    background-color: rgba(0, 29, 122, 0.61);
+}
