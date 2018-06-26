@@ -6,11 +6,33 @@ h1 {
     color: black;
 }
 
+.fa-twitter {
+    font-size: 30px;
+}
+
+.fa-yahoo {
+    font-size: 30px;
+}
+
+.fa-github {
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+}
 
 
 body {
-    margin: 0;
-    background-color:#DBC069;
+    display: grid;
+    grid-template-rows: min-content min-content auto min-content;
+    grid-template-areas: 
+    "navitgation"
+    "header"
+    "content"
+    "footer";
+    min-height: 100vh;
+    background-color: #DBC069;
 }
 
 a:visited {
@@ -31,13 +53,14 @@ img {
 }
 
 #navigation {
-    width: 100vw;
-    position: fixed;
     padding: 10px;
     background-color:rgba(21, 35, 82, 0.623);
 }
 
 #navigation > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin: 0;
     padding: 10px;
     list-style: none;
@@ -45,7 +68,6 @@ img {
 
 #navigation > ul > li {
     margin-right: 150px;
-    display: inline;
 }
 #navigation .container {
     margin: 0 auto;
@@ -65,7 +87,9 @@ img {
 
 #navigation a:hover + ul,
 #navigation a + ul:hover {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #header {
