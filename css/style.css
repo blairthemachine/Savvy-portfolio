@@ -64,6 +64,7 @@ img {
     margin: 0;
     padding: 10px;
     list-style: none;
+
 }
 
 #navigation > ul > li {
@@ -140,4 +141,32 @@ img {
 
 .contact {
     background-color: rgba(0, 29, 122, 0.61);
+}
+
+@media (min-width: 612px) { 
+    #content{
+        background-color: aqua;
+    }
+    
+}
+
+@media (min-width: 612px) {
+    body {
+        grid-template-columns: 150px auto;
+        grid-template-rows: min-content auto min-content;
+        grid-template-areas: 
+        "navigation header"
+        "navigation content"
+        "navigation foot";
+    }
+
+
+#navigation {
+    grid-area: navigation;
+    }
+}
+
+#navigation ul {
+    flex-direction: column;
+    height: 50vh;
 }
