@@ -1,14 +1,38 @@
-var title = document.querySelector('h1');
+import Navigation from './src/Navigation';
+import Footer from './src/Footer';
+import Header from './src/Header';
+import Content from './src/Content';
+
+var greeting = document.querySelector('#greeting');
 
 var greetUser = function greetUser(){
-    var userName = prompt('What is your name?');
+    var firstName = prompt('What is your first name?');
+    var lastName = prompt('what is your last name?');
 
-    if(userName !== ''){
-        title.textContent += '. Welcome, ' + userName;
+    if(firstName && lastName){
+        greeting.innerHTML = `
+        <div>
+            <h3>Welcome to my world,</h3>
+            <h4>${firstName} ${lastName}</h4>
+        `;
     }
     else{
         greetUser();
     }
 };
 
+// greetUser();
+
+var initialHTML = document.body.innerHTML;
+
+
+document
+    .body
+    .innerHTML = `
+    ${Navigation}
+    ${Footer}
+    ${Header}
+    ${Content}
+    ${initialHTML}
+    `;
 greetUser();

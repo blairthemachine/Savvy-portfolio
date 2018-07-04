@@ -145,7 +145,7 @@ img {
 
 @media (min-width: 612px) { 
     #content{
-        background-color: aqua;
+        background-color: rgba(0, 29, 122, 0.61);
     }
     
 }
