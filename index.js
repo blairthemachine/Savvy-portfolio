@@ -3,9 +3,8 @@ import Footer from './src/Footer';
 import Header from './src/Header';
 import Content from './src/Content';
 
-var greeting = document.querySelector('#greeting');
-
-var greetUser = function greetUser(){
+function greetUser(){
+    var greeting = document.querySelector('#greeting');
     var firstName = prompt('What is your first name?');
     var lastName = prompt('what is your last name?');
 
@@ -14,12 +13,12 @@ var greetUser = function greetUser(){
         <div>
             <h3>Welcome to my world,</h3>
             <h4>${firstName} ${lastName}</h4>
-        `;
+        </div>`;
     }
     else{
         greetUser();
     }
-};
+}
 
 // greetUser();
 
@@ -29,10 +28,10 @@ var initialHTML = document.body.innerHTML;
 document
     .body
     .innerHTML = `
-    ${Navigation}
-    ${Footer}
-    ${Header}
-    ${Content}
+    ${Navigation()}
+    ${Header()}
+    ${Content()}
+    ${Footer()}
     ${initialHTML}
     `;
 greetUser();

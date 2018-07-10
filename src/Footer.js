@@ -1,4 +1,6 @@
-export default `
+export default function Footer(){
+    return `
+
 <div id="footer">
     <ul>
         <li>
@@ -19,3 +21,4 @@ export default `
     </ul>
 </div>
 `;
+}
