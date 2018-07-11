@@ -3,35 +3,87 @@ import Footer from './src/Footer';
 import Header from './src/Header';
 import Content from './src/Content';
 
-function greetUser(){
-    var greeting = document.querySelector('#greeting');
-    var firstName = prompt('What is your first name?');
-    var lastName = prompt('what is your last name?');
+var Home = {
+    'title': 'Eric Humphrey\'s project'
+};
 
-    if(firstName && lastName){
-        greeting.innerHTML = `
-        <div>
-            <h3>Welcome to my world,</h3>
-            <h4>${firstName} ${lastName}</h4>
-        </div>`;
-    }
-    else{
-        greetUser();
-    }
-}
+var Resume = {
+    'title': 'RESUME'
+};
 
-// greetUser();
+var Projects = {
+    'title': 'PROJECT'
+};
 
-var initialHTML = document.body.innerHTML;
+var Contact = {
+    'title': 'CONTACT'
+};
+var root = document.querySelector('#root');
 
 
-document
-    .body
-    .innerHTML = `
+function render(state){
+    var greeting;
+    var input;
+    var links;
+
+    root.innerHTML = `
     ${Navigation()}
-    ${Header()}
+    ${Header(state)}
     ${Content()}
     ${Footer()}
-    ${initialHTML}
     `;
-greetUser();
+    greeting = document.querySelector('#greeting');
+    input = document.querySelector('#header input');
+    
+    input.addEventListener(
+        'keyup',
+        (event) => greeting.innerHTML = `
+        <div>
+            <h3>Welcome to my home page,</h3>
+            <h4>${event.target.value}</h4>
+        </div>
+        `
+    );
+
+    links =
+    document.querySelectorAll('#navigation a');
+
+    links[0].addEventListener(
+        'click',
+        (event) => {
+            event.preventDefault();
+
+            render(Home);
+        }
+    );
+
+
+    links[1].addEventListener(
+        'click',
+        (event) => {
+            event.preventDefault();
+
+            render(Resume);
+        }
+    );
+    links[2].addEventListener(
+        'click',
+        (event) => {
+            event.preventDefault();
+            
+            render(Projects);
+        }
+    );
+
+    links[3].addEventListener(
+        'click',
+        (event) => {
+            event.preventDefault();
+
+            render(Contact);
+        }
+    );
+    console.log('first link clicked!');
+}
+
+render(Home);
