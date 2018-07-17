@@ -16,7 +16,7 @@ export default function Navigation(){
                     <li>Fourth</li>
                 </ul>
                 <li>
-                            <a href="/Contact/">Contact</a>
+                    = <a href="/Contact/">Contact</a>
                 </li>
             </li>
         </ul>

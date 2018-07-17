@@ -18,20 +18,22 @@ var Projects = {
 var Contact = {
     'title': 'CONTACT'
 };
-var root = document.querySelector('#root');
 
+var root = document.querySelector('#root');
 
 function render(state){
     var greeting;
     var input;
     var links;
+    var i = 0;
 
     root.innerHTML = `
-    ${Navigation()}
-    ${Header(state)}
-    ${Content()}
-    ${Footer()}
+        ${Navigation()}
+        ${Header(state)}
+        ${Content()}
+        ${Footer()}
     `;
+
     greeting = document.querySelector('#greeting');
     input = document.querySelector('#header input');
     
@@ -45,45 +47,21 @@ function render(state){
         `
     );
 
-    links =
-    document.querySelectorAll('#navigation a');
+    links = document.querySelectorAll('#navigation a');
 
-    links[0].addEventListener(
-        'click',
-        (event) => {
-            event.preventDefault();
+    while(i < links.length){
+        links[i].addEventListener(
+            'click',
+            (event) => {
+                event.preventDefault();
+    
+    
+                render(Home);
+            }
+        );
 
-            render(Home);
-        }
-    );
-
-
-    links[1].addEventListener(
-        'click',
-        (event) => {
-            event.preventDefault();
-
-            render(Resume);
-        }
-    );
-    links[2].addEventListener(
-        'click',
-        (event) => {
-            event.preventDefault();
-            
-            render(Projects);
-        }
-    );
-
-    links[3].addEventListener(
-        'click',
-        (event) => {
-            event.preventDefault();
-
-            render(Contact);
-        }
-    );
-    console.log('first link clicked!');
+        i++;
+    }
 }
 
 render(Home);
