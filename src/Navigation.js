@@ -24,6 +24,8 @@
 
 // `;
 // }
+import { lowerCase } from 'lodash';
+console.log(lowerCase);
 
 function buildLinks(links){
     var result = '';
@@ -32,7 +34,7 @@ function buildLinks(links){
     while(i < links.length){
         result += `
         <li>
-            <a href="/${links[i]}">${links[i]}</a>
+            <a href="/${lowerCase(links[i])}">${links[i]}</a>
         </li>
         `;
         i++;

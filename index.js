@@ -2,27 +2,33 @@ import Navigation from './src/Navigation';
 import Footer from './src/Footer';
 import Header from './src/Header';
 import Content from './src/Content';
-var State = {
-    'Home': {
-        'links': [ 'Resume', 'Contact', 'Projects' ],
-        'title': 'Eric Humphrey\'s project'
-    },
-    'Resume': {
-        'links': [ 'Projects', 'Contact', 'Home' ],
-        'title': ' RESUME'
-    },
-    'Projects': {
-        'links': [ 'Resume', 'Contact', 'Home' ],
-        'title': 'PROJECTS'
-    },
-    'Contact': {
-        'links': [ 'Projects', 'Resume', 'Home' ],
-        'title': 'CONTACTS'
-    },
+import * as State from './store';
+import Navigo from 'Navigo';
 
-};
+// var State = {
+//     // 'Home': {
+//     //     'links': [ 'Resume', 'Contact', 'Projects' ],
+//     //     'title': 'Eric Humphrey\'s project'
+//     },
+//     // 'Resume': {
+//     //     'links': [ 'Projects', 'Contact', 'Home' ],
+//     //     'title': ' RESUME'
+//     // // },
+//     // 'Projects': {
+//     //     'links': [ 'Resume', 'Contact', 'Home' ],
+//     //     'title': 'PROJECTS'
+//     // },
+//     // 'Contact': {
+//     //     'links': [ 'Projects', 'Resume', 'Home' ],
+//     //     'title': 'CONTACTS'
+//     // },
+
+// };
 
 var root = document.querySelector('#root');
+var router = new Navigo();
+
+console.log(router);
 
 function render(state){
     var greeting;
