@@ -2,21 +2,24 @@ import Navigation from './src/Navigation';
 import Footer from './src/Footer';
 import Header from './src/Header';
 import Content from './src/Content';
+var State = {
+    'Home': {
+        'links': [ 'Resume', 'Contact', 'Projects' ],
+        'title': 'Eric Humphrey\'s project'
+    },
+    'Resume': {
+        'links': [ 'Projects', 'Contact', 'Home' ],
+        'title': ' RESUME'
+    },
+    'Projects': {
+        'links': [ 'Resume', 'Contact', 'Home' ],
+        'title': 'PROJECTS'
+    },
+    'Contact': {
+        'links': [ 'Projects', 'Resume', 'Home' ],
+        'title': 'CONTACTS'
+    },
 
-var Home = {
-    'title': 'Eric Humphrey\'s project'
-};
-
-var Resume = {
-    'title': 'RESUME'
-};
-
-var Projects = {
-    'title': 'PROJECT'
-};
-
-var Contact = {
-    'title': 'CONTACT'
 };
 
 var root = document.querySelector('#root');
@@ -28,10 +31,10 @@ function render(state){
     var i = 0;
 
     root.innerHTML = `
-        ${Navigation()}
+        ${Navigation(state)}
         ${Header(state)}
-        ${Content()}
-        ${Footer()}
+        ${Content(state)}
+        ${Footer(state)}
     `;
 
     greeting = document.querySelector('#greeting');
@@ -53,10 +56,13 @@ function render(state){
         links[i].addEventListener(
             'click',
             (event) => {
+                var page = event.target.textContent;
+
                 event.preventDefault();
     
+                console.log('page', page);
     
-                render(Home);
+                render(State[page]);
             }
         );
 
@@ -64,4 +70,4 @@ function render(state){
     }
 }
 
-render(Home);
+render(State['Home']);
