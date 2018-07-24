@@ -4,37 +4,21 @@ import Header from './src/Header';
 import Content from './src/Content';
 import * as State from './store';
 import Navigo from 'Navigo';
-
-// var State = {
-//     // 'Home': {
-//     //     'links': [ 'Resume', 'Contact', 'Projects' ],
-//     //     'title': 'Eric Humphrey\'s project'
-//     },
-//     // 'Resume': {
-//     //     'links': [ 'Projects', 'Contact', 'Home' ],
-//     //     'title': ' RESUME'
-//     // // },
-//     // 'Projects': {
-//     //     'links': [ 'Resume', 'Contact', 'Home' ],
-//     //     'title': 'PROJECTS'
-//     // },
-//     // 'Contact': {
-//     //     'links': [ 'Projects', 'Resume', 'Home' ],
-//     //     'title': 'CONTACTS'
-//     // },
-
-// };
+import { capitalize } from 'lodash';
+import axios from 'axios';
 
 var root = document.querySelector('#root');
-var router = new Navigo();
+var router = new Navigo(location.or);
+
+axios('http://jsonplaceholder.typicode.com/posts').then(console.log);
 
 console.log(router);
 
 function render(state){
     var greeting;
     var input;
-    var links;
-    var i = 0;
+    // var links;
+    // var i = 0;
 
     root.innerHTML = `
         ${Navigation(state)}
@@ -55,25 +39,19 @@ function render(state){
         </div>
         `
     );
-
-    links = document.querySelectorAll('#navigation a');
-
-    while(i < links.length){
-        links[i].addEventListener(
-            'click',
-            (event) => {
-                var page = event.target.textContent;
-
-                event.preventDefault();
-    
-                console.log('page', page);
-    
-                render(State[page]);
-            }
-        );
-
-        i++;
-    }
 }
 
-render(State['Home']);
+function handleRoute(params){
+    var page = capitalize(params.page);
+
+    console.log(params);
+    console.log(page);
+
+    render(State[page]);
+    router.updatePageLinks();
+}
+    
+router
+    .on('/:page', handleRoute)
+    .on('/', () => handleRoute({ 'page': 'home' }))
+    .resolve();
