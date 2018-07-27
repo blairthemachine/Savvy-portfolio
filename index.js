@@ -10,7 +10,8 @@ import axios from 'axios';
 var root = document.querySelector('#root');
 var router = new Navigo(location.or);
 
-axios('http://jsonplaceholder.typicode.com/posts').then(console.log);
+State.posts = [];
+
 
 console.log(router);
 
@@ -23,7 +24,7 @@ function render(state){
     root.innerHTML = `
         ${Navigation(state)}
         ${Header(state)}
-        ${Content(state)}
+        ${Content(state, State.posts)}
         ${Footer(state)}
     `;
 
@@ -55,3 +56,15 @@ router
     .on('/:page', handleRoute)
     .on('/', () => handleRoute({ 'page': 'home' }))
     .resolve();
+
+
+axios('http://jsonplaceholder.typicode.com/posts').then((Response) => {
+    var params = router.lastRouteResolved().params;
+    
+    State.posts = Response.data;
+    
+    if(params){
+        handleRoute(params);
+    }
+});
+

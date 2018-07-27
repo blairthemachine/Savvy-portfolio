@@ -4,6 +4,7 @@
   "description": "![my face](https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/25289734_10211196251164521_4701402657721650175_n.jpg?_nc_cat=0&oh=a345b45d973727fdc78a97c0dba9eedd&oe=5B763460)",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,8 @@
   },
   "homepage": "https://github.com/blairthemachine/Savvy-portfolio#readme",
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^4.19.1",
+    "parcel-bundler": "^1.9.7"
   },
   "dependencies": {
     "axios": "^0.18.0",
