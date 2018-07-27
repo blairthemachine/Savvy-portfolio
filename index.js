@@ -3,7 +3,7 @@ import Footer from './src/Footer';
 import Header from './src/Header';
 import Content from './src/Content';
 import * as State from './store';
-import Navigo from 'Navigo';
+import Navigo from 'navigo';
 import { capitalize } from 'lodash';
 import axios from 'axios';
 
